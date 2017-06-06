@@ -1,7 +1,12 @@
 <% begin %>
-  <%= data_layer.print_on_js %>
+  <%= data_layer.print_on_html %>
 <%-
-  rescue StandardError => e
-    raise e unless GtmOnRails.config.rescue_when_error_occurred
+  rescue => e
+    if GtmOnRails.config.rescue_when_error_occurred
+      logger.warn(e.message)
+      logger.warn(e.backtrace.join("\n"))
+    else
+      raise e
+    end
   end
 -%>
