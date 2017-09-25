@@ -36,6 +36,8 @@ controller名とaction名はJavaScriptのコードとしてHTMLのソースコ�
 #### rescue_when_error_occurred
 この設定を有効にすることによって、JavaScriptのコードとして出力される際に、dataLayerに設定した値などの問題でエラーが発生場合にエラーを握りつぶします。
 つまり、計測周りのエラーによってサイトの表示に影響が出ないようにします。
+#### ecommerce_default_currency
+拡張Eコマース機能を用いる場合のデフォルトの通貨を設定します。ISO4217規格の文字列で指定して下さい。
 
 ## BasicUsage
 #### 基本
@@ -96,6 +98,7 @@ https://developers.google.com/tag-manager/enhanced-ecommerce
 - 決済(checkout)
 - 購入(purchase)
 - 払い戻し(refund)
+
 の10種類のアクションが存在します。
 
 4種類のデータは各アクションで使用します。
@@ -103,7 +106,7 @@ https://developers.google.com/tag-manager/enhanced-ecommerce
 
 ### データ型
 基本はGoogle公式のヘルプを参照して下さい。
-GTMonRails固有の内容のみ記載します。
+ここではGTMonRails固有の内容のみ記載します。
 
 #### インプレッション `GtmOnRails::DataLayer::Ecommerce::Impression`
 公式仕様：https://developers.google.com/analytics/devguides/collection/analyticsjs/enhanced-ecommerce#impression-data
@@ -182,7 +185,7 @@ option       | ヘルプ参照
 
 ### アクション型
 基本はGoogle公式のヘルプを参照して下さい。
-GTMonRails固有の内容のみ記載します。
+ここではGTMonRails固有の内容のみ記載します。
 
 #### 商品インプレッション(product_impression)
 公式仕様：https://developers.google.com/tag-manager/enhanced-ecommerce#product-impressions
