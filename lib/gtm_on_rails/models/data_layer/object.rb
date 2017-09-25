@@ -22,7 +22,7 @@ module GtmOnRails
     end
 
     def to_js(options = nil)
-      "dataLayer.push(#{self.to_json(options)});"
+      "dataLayer.push(#{self.to_json(options)});".html_safe
     end
 
     def method_missing(method, *args, &block)
