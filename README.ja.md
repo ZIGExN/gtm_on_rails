@@ -83,6 +83,7 @@ https://developers.google.com/tag-manager/enhanced-ecommerce
 - 商品
 - プロモーション
 - アクション
+
 の4種類のデータ型と、
 
 - 商品インプレッション(product_impression)
