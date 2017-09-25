@@ -13,4 +13,8 @@ GtmOnRails.configure do |config|
   # If somthing error occurred when output tags, subsequent tag's output is stopped and run subsequent processing. 
   # The point is, dataLayer error won't affect displaying website, if you enable this option.
   config.rescue_when_error_occurred = false
+
+  # Default local currency code when use Enhanced Ecommerce.
+  # The local currency must be specified in the ISO 4217 standard.
+  config.ecommerce_default_currency = 'USD'
 end

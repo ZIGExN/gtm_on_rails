@@ -1,6 +1,6 @@
 # Class to take a roll as javascript's object in dataLayer
 module GtmOnRails
-  class DataLayerObject
+  class DataLayer::Object
     attr_accessor :data
 
     def initialize(**args)
@@ -11,12 +11,18 @@ module GtmOnRails
       @data.merge!(hash)
     end
 
-    def to_json
-      @data.to_json
+    def as_json(options = nil)
+      @data.as_json(options)
     end
 
-    def to_js
-      "dataLayer.push(#{self.to_json});"
+    def to_json(options = nil)
+      hash = as_json(options)
+      
+      hash.to_json
+    end
+
+    def to_js(options = nil)
+      "dataLayer.push(#{self.to_json(options)});"
     end
 
     def method_missing(method, *args, &block)

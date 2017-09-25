@@ -1,6 +1,6 @@
 # Class to take a roll as javascript's object in dataLayer for google tag manager event
 module GtmOnRails
-  class DataLayerEvent < GtmOnRails::DataLayerObject
+  class DataLayer::Event < DataLayer::Object
     def initialize(event_name, **args)
       @data = args.merge(event: event_name).with_indifferent_access
     end

@@ -1,8 +1,13 @@
 require 'gtm_on_rails/config'
 require 'gtm_on_rails/controllers/initialize_data_layer'
 require 'gtm_on_rails/models/data_layer'
-require 'gtm_on_rails/models/data_layer_object'
-require 'gtm_on_rails/models/data_layer_event'
+require 'gtm_on_rails/models/data_layer/object'
+require 'gtm_on_rails/models/data_layer/event'
+require 'gtm_on_rails/models/data_layer/ecommerce'
+require 'gtm_on_rails/models/data_layer/ecommerce/action'
+require 'gtm_on_rails/models/data_layer/ecommerce/impression'
+require 'gtm_on_rails/models/data_layer/ecommerce/product'
+require 'gtm_on_rails/models/data_layer/ecommerce/promotion'
 require 'gtm_on_rails/tag_helper'
 
 module GtmOnRails

@@ -15,7 +15,7 @@ module GtmOnRails
       objects.each do |object|
         case object
         when Hash
-          @objects << GtmOnRails::DataLayerObject.new(object)
+          @objects << GtmOnRails::DataLayer::Object.new(object)
         when GtmOnRails::DataLayerObject
           @objects << object
         end 
