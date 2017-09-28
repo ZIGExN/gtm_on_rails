@@ -27,6 +27,8 @@ module GtmOnRails
       def generate_product_impression_hash(args)
         result = {}
 
+        result[:event] = args[:event] if args[:event].present?
+
         result[:ecommerce]                = {}
         result[:ecommerce][:currencyCode] = args[:currency] || GtmOnRails.config.ecommerce_default_currency
 
@@ -39,6 +41,8 @@ module GtmOnRails
 
       def generate_product_click_hash(args)
         result = {}
+
+        result[:event] = args[:event] || 'productClick'
 
         result[:event_category] = args[:event_category] || 'Enhanced Ecommerce'
         result[:event_action]   = args[:event_action]   || 'Product Click'
@@ -64,6 +68,8 @@ module GtmOnRails
       def generate_product_detail_hash(args)
         result = {}
 
+        result[:event] = args[:event] if args[:event].present?
+
         result[:ecommerce]                = {}
         result[:ecommerce][:currencyCode] = args[:currency] || GtmOnRails.config.ecommerce_default_currency
 
@@ -84,7 +90,7 @@ module GtmOnRails
       def generate_add_to_cart_hash(args)
         result = {}
 
-        result[:event] = 'addToCart'
+        result[:event] = args[:event] || 'addToCart'
 
         result[:event_category] = args[:event_category] || 'Enhanced Ecommerce'
         result[:event_action]   = args[:event_action]   || 'Add to Cart'
@@ -104,6 +110,8 @@ module GtmOnRails
       def generate_remove_from_cart_hash(args)
         result = {}
 
+        result[:event] = args[:event] || 'removeFromCart'
+
         result[:event_category] = args[:event_category] || 'Enhanced Ecommerce'
         result[:event_action]   = args[:event_action]   || 'Remove from Cart'
         result[:event_label]    = args[:event_label]    || 'Enhanced Ecommerce Remove from Cart'
@@ -122,6 +130,8 @@ module GtmOnRails
       def generate_promotion_impression_hash(args)
         result = {}
 
+        result[:event] = args[:event] if args[:event].present?
+
         result[:ecommerce]                = {}
         result[:ecommerce][:currencyCode] = args[:currency] || GtmOnRails.config.ecommerce_default_currency
 
@@ -137,7 +147,7 @@ module GtmOnRails
       def generate_promotion_click_hash(args)
         result = {}
 
-        result[:event] = 'promotionClick'
+        result[:event] = args[:event] || 'promotionClick'
 
         result[:event_category] = args[:event_category] || 'Enhanced Ecommerce'
         result[:event_action]   = args[:event_action]   || 'Promotion Click'
@@ -158,7 +168,7 @@ module GtmOnRails
       def generate_checkout_hash(args)
         result = {}
 
-        result[:event] = 'checkout'
+        result[:event] = args[:event] || 'checkout'
 
         result[:event_category] = args[:event_category] || 'Enhanced Ecommerce'
         result[:event_action]   = args[:event_action]   || 'Checkout'
@@ -184,6 +194,8 @@ module GtmOnRails
       def generate_purchase_hash(args)
         result = {}
 
+        result[:event] = args[:event] if args[:event].present?
+
         result[:ecommerce]                = {}
         result[:ecommerce][:currencyCode] = args[:currency] || GtmOnRails.config.ecommerce_default_currency
 
@@ -202,6 +214,8 @@ module GtmOnRails
 
       def generate_refund_hash(args)
         result = {}
+
+        result[:event] = args[:event] if args[:event].present?
 
         result[:ecommerce]                = {}
         result[:ecommerce][:currencyCode] = args[:currency] || GtmOnRails.config.ecommerce_default_currency
