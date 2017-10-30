@@ -22,10 +22,6 @@ module GtmOnRails
       end
     end
 
-    def clear
-      @objects.clear
-    end
-
     def to_js
       js_codes = []
 
