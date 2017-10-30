@@ -3,16 +3,16 @@ module GtmOnRails
   class DataLayer
     include ActionView::Helpers::TagHelper
 
-    attr_reader :objects
+    attr_accessor :objects
 
     def initialize(*args)
       options  = args.extract_options!
-      @objects = args # @objects are instances of GTM::DataLayerObject
+      @objects = [args].flatten # @objects are instances of GTM::DataLayerObject
     end
 
-    def push(objects)
-      objects = [objects].flatten
-      objects.each do |object|
+    def push(args)
+      args = [args].flatten
+      args.each do |object|
         case object
         when Hash
           @objects << GtmOnRails::DataLayer::Object.new(object)
@@ -20,6 +20,10 @@ module GtmOnRails
           @objects << object
         end
       end
+    end
+
+    def clear
+      @objects.clear
     end
 
     def to_js
@@ -42,6 +46,18 @@ module GtmOnRails
 
     def print_on_html
       content_tag(:script, self.to_js)
+    end
+
+    def method_missing(method, *args, &block)
+      if @objects.respond_to?(method)
+        @objects.send(method, *args, &block)
+      else
+        super
+      end
+    end
+
+    def respond_to?(method, include_all=false)
+      Array.new.respond_to?(method, include_all) || super
     end
   end
 end
